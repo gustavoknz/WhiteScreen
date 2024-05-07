@@ -1,50 +1,32 @@
 package com.kieling.whitescreen.ui
 
+import android.graphics.Color.TRANSPARENT
 import android.os.Bundle
+import android.view.WindowInsets
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Surface
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.google.accompanist.systemuicontroller.SystemUiController
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import com.kieling.whitescreen.ui.theme.WhiteScreenTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        //val viewModel: MainViewModel by viewModels()
-        setContent {
-            AddMainScreen()
-        }
+
+        val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
+
+        setContent { AddMainScreen() }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun AddMainScreen() {
-    HideSystemUI()
-    Scaffold(modifier = Modifier.fillMaxSize()) { paddings ->
-        WhiteScreenTheme {
-            // A surface container using the 'background' color from the theme
-            Surface(
-                modifier = Modifier
-                    .padding(paddings)
-                    .fillMaxSize(),
-                color = MaterialTheme.colors.background
-            ) {}
-        }
-    }
-}
-
-@Composable
-fun HideSystemUI() {
-    // https://developer.android.com/training/system-ui/immersive
-    val systemUiController: SystemUiController = rememberSystemUiController()
-    systemUiController.isNavigationBarVisible = false // Navigation bar
+    WhiteScreenTheme {}
 }
