@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "White Screen"
+rootProject.name = "Blank"
 include ':app'
