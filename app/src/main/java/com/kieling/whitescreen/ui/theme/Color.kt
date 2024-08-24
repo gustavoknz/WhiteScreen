@@ -2,8 +2,8 @@ package com.kieling.whitescreen.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val LightRed = Color(0xFFFFCCCC)
-val MediumRed = Color(0xFFFF8080)
+val Black = Color.Black
+val MediumRed = Color(0xFFFF9999)
 val Red = Color.Red
-val Yellow = Color.Yellow
+val Yellow = Color(0xFFEEEE00)
 val White = Color(0xFFFFFFFF)
