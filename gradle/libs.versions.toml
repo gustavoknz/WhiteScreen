@@ -1,20 +1,19 @@
 [versions]
-activityCompose = "1.9.1"
-agp = "8.6.0"
-composeBom = "2024.08.00"
+activityCompose = "1.9.2"
+agp = "8.6.1"
+composeBom = "2024.09.02"
 coreKtx = "1.13.1"
 jupiter = "5.11.0"
 kotlin = "2.0.20"
-lifecycleRuntimeKtx = "2.8.4"
-lifecycleViewModelCompose = "2.8.4"
-hilt = "2.44"
+lifecycleRuntimeKtx = "2.8.6"
+hilt = "2.52"
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleViewModelCompose" }
+androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }

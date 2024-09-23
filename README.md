@@ -1,1 +1,1 @@
-Project writen in Kotlin that shows a white screen.
+Project written in Kotlin that shows a colorful full screen.
