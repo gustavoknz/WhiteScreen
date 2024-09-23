@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.google.hilt)
+    id("kotlin-kapt")
 }
 
 private val release = "release"
@@ -12,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId = "com.kieling.whitescreen"
-        minSdk = 30
+        minSdk = 26
         targetSdk = 35
         versionCode = 7
         versionName = "2.1.0"
@@ -45,6 +47,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
+    kapt { correctErrorTypes = true }
     kotlinOptions { jvmTarget = "21" }
     buildFeatures { compose = true }
     composeOptions { kotlinCompilerExtensionVersion = "1.5.15" }
@@ -54,14 +57,19 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.material3)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+    implementation(platform(libs.androidx.compose.bom))
+
+    // Hilt
+    implementation(libs.google.hilt)
+    kapt(libs.google.hilt.compiler)
 
     testImplementation(libs.jupiter)
 

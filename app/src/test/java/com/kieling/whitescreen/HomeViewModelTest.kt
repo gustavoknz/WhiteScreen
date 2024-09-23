@@ -1,3 +1,3 @@
 package com.kieling.whitescreen
 
-class ExampleUnitTest {}
+class HomeViewModelTest {}

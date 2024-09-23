@@ -8,7 +8,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import com.kieling.whitescreen.home.ui.AddHomeScreen
 import com.kieling.whitescreen.ui.theme.WhiteScreenTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
         // Avoid screen lock
         window.addFlags(FLAG_KEEP_SCREEN_ON)
 
-        setContent { AddMainScreen() }
+        setContent { AddMainScreen { finish() } }
     }
 }
 
@@ -39,8 +39,7 @@ private fun hideSystemBars(window: Window) {
                 View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
 }
 
-@Preview
 @Composable
-private fun AddMainScreen() {
-    WhiteScreenTheme { HomeScreen() }
+private fun AddMainScreen(finishApp: () -> Unit) {
+    WhiteScreenTheme { AddHomeScreen(finishApp = finishApp) }
 }
