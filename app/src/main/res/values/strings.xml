@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Blank</string>
+
+    <string name="home_permissions_dialog_title">Permission required</string>
+    <string name="home_permissions_dialog_button_negative">Exit</string>
+    <string name="home_permissions_dialog_button_positive">Go to settings</string>
+    <string name="home_permissions_dialog_message">The app must have the permission to set the system brightness.</string>
 </resources>

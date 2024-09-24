@@ -29,6 +29,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.kieling.whitescreen.R
 import com.kieling.whitescreen.home.HomeViewModel
 import com.kieling.whitescreen.ui.theme.Black
 import com.kieling.whitescreen.ui.theme.Orange
@@ -66,7 +67,6 @@ private fun HomeScreen(finishApp: () -> Unit) {
                 .padding(bottom = 100.dp)
                 .alpha(.15F)
         ) {
-            println("New value: $it")
             val settingsCanWrite = hasWriteSettingsPermission(context)
             if (!settingsCanWrite) {
                 showPermissionsDialog(context, finishApp)
@@ -81,10 +81,12 @@ private fun hasWriteSettingsPermission(context: Context) = System.canWrite(conte
 
 private fun showPermissionsDialog(context: Context, finishApp: () -> Unit) {
     AlertDialog.Builder(context)
-        .setTitle("Permission required")
-        .setNegativeButton("Exit") { _, _ -> finishApp() }
-        .setPositiveButton("Go to settings") { _, _ -> changeWriteSettingsPermission(context) }
-        .setMessage("The app must have the permission to set the system brightness.")
+        .setTitle(R.string.home_permissions_dialog_title)
+        .setNegativeButton(R.string.home_permissions_dialog_button_negative) { _, _ -> finishApp() }
+        .setPositiveButton(R.string.home_permissions_dialog_button_positive) { _, _ ->
+            changeWriteSettingsPermission(context)
+        }
+        .setMessage(R.string.home_permissions_dialog_message)
         .create()
         .show()
 }
