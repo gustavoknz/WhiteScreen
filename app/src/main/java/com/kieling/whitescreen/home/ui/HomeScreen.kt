@@ -116,8 +116,8 @@ private fun setBrightness(context: Context, brightness: Float) {
 private fun ColoredBox(colorInput: MutableState<Color>, boxColor: Color) {
     Box(
         modifier = Modifier
-            .size(32.dp)
-            .border(width = 0.1.dp, color = Black)
+            .size(30.dp)
+            .border(width = 0.08.dp, color = Black)
             .background(boxColor)
             .clickable { colorInput.value = boxColor }
     )
